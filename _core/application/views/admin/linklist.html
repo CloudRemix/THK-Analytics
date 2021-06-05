@@ -1,0 +1,69 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">登録済みリンク数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->titleCount();?></span></td>
+</tr>
+</table>
+
+<?php $helper->searchFormTag('リンク名'); ?>
+
+<form action="<?php $helper->indexUrl('admin', 'linkdelete');?>" method="post" id="title">
+<?php echo $helper->pageTag(); ?>
+<table class="std">
+ <colgroup>
+  <col>
+  <col class="w40">
+  <col class="w60">
+  <col>
+ </colgroup>
+ <thead>
+ <tr>
+  <th>-</th>
+  <th>リンク名</th>
+  <th>URL</th>
+  <th>設定</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultTitleListTag(); ?>
+ </tbody>
+</table>
+<p><input class="button" type="submit" value=" 選択したリンク名設定を削除 " onclick="disableButton(this.form);" />&nbsp;&nbsp;<span class="vmiddle">[<a href="javascript:checkboxAllOn('title','delete[]');">全て選択</a>]&nbsp;[<a href="javascript:checkboxAllOff('title','delete[]');">選択解除</a>]</span></p>
+<?php echo $helper->pageTag(); ?>
+</form>
+<div class="footnote">
+<ul>
+<li class="duck">リンク名を変更しても、ビジターログ等、一部の画面では、訪問者がリンクをクリックした時のリンク名が維持されます。</li>
+<li class="duck">リンク名を削除しても、次に誰かがそのリンクをクリックした際には、リンク名が再登録されます。</li>
+<li class="duck">リンク名を削除した場合、次に誰かがそのリンクをクリックしなければ、リンク名は登録されません。</li>
+<li class="duck">リンク名には、Google 等にキャッシュされたリンクも登録されます（不要であれば削除しても問題ありません）。</li>
+</ul>
+</div>

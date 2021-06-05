@@ -1,0 +1,111 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<style type="text/css">
+div.group h1 {
+	margin-top: 20px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAAA3NCSVQICAjb4U/gAAAAMFBMVEVkTyuQcibZYQetgiPnegXBmhucnJzyngz0vArotYD40wz86A770Jn95WXw6OL9/f2sR1odAAAAEHRSTlP///////////////////8A4CNdGQAAASVJREFUGJU1kLFKAzEcxj/fwGt1EJyOg+JYSgfBxSMSEbcifYMDl04p6UFxvdhRXQo+wJF7g+vqUkj7ANYOpVUUik6lCNL4T49+S/LL98/3hcDazdIY0382Y2thaT9aFgcWf7S+TUfGDIeiC+M0JRklBejCyMF0ohKGp7igXKskxEMglR4MBjpNhE/EpOppciTz8eJzMnNCyS4wL/HtKFF4hPdqud7RWZ62a94pPu8fvULlZozF1SRVhRKORdDpZdSQpwmrELkU1yDCCuYB71AmWSI8wUeJu1FH58dYV71aU+m03fAO77CObxrbglpddrHi2at2UkpcYxVcap1tX8aI/F2Do5m/a5DhGX5xsGtAC/ZrH3t1ygVa9J92892Pouh2/GPtP6QMuMIXAzBJAAAAAElFTkSuQmCC) 10px top no-repeat;
+}
+div.group form {
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+#inputs {
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 300px;
+}
+#inputs p {
+	margin: 0;
+	padding: 15px 0 5px 0;
+}
+#inputs input.button {
+	display: block;
+	margin-left: auto;
+}
+#inputs input.text {
+	margin: 0;
+	padding: 4px 4px 4px 38px;
+	font-size: 14px;
+	width: 300px;
+}
+
+#hostname {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADw5/WeAAAAA3NCSVQICAjb4U/gAAAADFBMVEW0tLTFxcXk5OT39/e1TldDAAAATElEQVQImWMIBQGGqlWrVq1hqGBgYJBhKGGwqkKQLCwyDKVA2RiG0gYGsTkMpa9A7BKgJhkQezWS+Gpk8Tlg8Rio3hKwyXVgW8A2AgDe0yfTBFhn9wAAAABJRU5ErkJggg==) 10px 4px no-repeat;
+}
+#username {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADw5/WeAAAAA3NCSVQICAjb4U/gAAAADFBMVEWysrLNzc3p6Of9/f2YfGoeAAAABHRSTlP///8AQCqp9AAAAFJJREFUCJlj+A8CDP//Be4Hkj8Y5IHkAwZ2IHmAgQlINjAwIpFMcHGImi8M0iC9jiC9YHP+hYaG7md4wsDAIM1wAUiyMzQASSYGByDJCCVDQQAAW60yKJgs9SwAAAAASUVORK5CYII=) 10px 4px no-repeat;
+}
+#pswd {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADw5/WeAAAAA3NCSVQICAjb4U/gAAAADFBMVEWzs7PW1tXx8fH+/v4xhXCRAAAABHRSTlP///8AQCqp9AAAAFxJREFUCJkdy7ERQEAYROF3AgIlCJRwLdxIVEAbSmA0pgVFKEHK2l/yBW92kd7pQLrI9qS1JY2WZkcv9RBSoef3hgYP6VCBFedZ3CRfTjq7kW1JR1gpSh9eSyhnfXQHOKs27D2rAAAAAElFTkSuQmCC) 10px 4px no-repeat;
+}
+#dbname {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADw5/WeAAAAA3NCSVQICAjb4U/gAAAADFBMVEWysrLDw8PW1tbu7u5NkOndAAAAVklEQVQImWP4v5RB7D/DAwYGBnaGBiDJyHABSDIz5AUwMO5lcFz//58jgwNYHCL7BEhyM8RPYWD7yeCQ//8XquwXICnNEL+UQQpV9gBclpvh/9LQqP8AdDkcT4CCiQYAAAAASUVORK5CYII=) 10px 4px no-repeat;
+}
+#tableprefix {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADw5/WeAAAAA3NCSVQICAjb4U/gAAAADFBMVEWysrLS0tPp6OX9/f3TdushAAAABHRSTlP///8AQCqp9AAAAF5JREFUCJkdzDENgDAABdEDQjogolYaPKAHggKcIAELSOiABAZY+vllecMNh/ROO1Im2IUOFcKIHoYV575FG7QUqs9vtoHFRpKdq404ncXtLF5nUVIj+RCqV6yWQ/oA4A8tDFD+jWQAAAAASUVORK5CYII=) 10px 4px no-repeat;
+}
+ul {
+	margin: 10px 10px 10px 20px;
+	padding: 0;
+}
+</style>
+<div class="group">
+  <?php $helper->errorMessageTag(); ?>
+  <h1>データベース接続設定</h1>
+  <form action="<?php $helper->indexUrl('install', 'step1');?>" method="post">
+    <div id="inputs">
+      <p>ホスト名&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="hostname" maxlength="100" name="hostname" type="text" value="<?php $helper->hostName();?>" />
+      <p>ユーザー名&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="username" maxlength="100" name="username" type="text" value="<?php $helper->userName();?>" />
+      <p>パスワード</p>
+      <input class="text" id="pswd" maxlength="100" name="pswd" type="text" value="<?php $helper->pswd();?>" />
+      <p>データベース名&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="dbname" maxlength="100" name="dbname" type="text" value="<?php $helper->dbName();?>" />
+      <p>テーブルプレフィックス&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="tableprefix" maxlength="100" name="tableprefix" type="text" value="<?php $helper->tablePrefix();?>" />
+      <p>&nbsp;</p>
+      <input class="button" name="commit" onclick="disableButton(this.form);" type="submit" value=" 次へ " />
+    </div>
+  </form>
+</div>
+<div class="box">
+  <div class="fixbox">
+  <ul>
+    <li class="duck">データベースにパスワードを設定していない場合は、<br />未入力で「次へ」ボタンを押してください。</li>
+  </ul>
+  </div>
+</div>
+<div class="box">
+  <ul>
+    <li class="duck">テーブルプレフィックスとは、<?php echo ThkConfig::THK_NAME ?> が使用するテーブル名の頭につける文字です。</li>
+    <li class="duck"><?php echo ThkConfig::THK_NAME ?> が使用するテーブルが、指定したデータベース上で一意になるような名前を付けてください。</li>
+    <li class="duck">同一データベースで複数のサイトを <?php echo ThkConfig::THK_NAME ?> で解析する場合は、サイトごとに別々のテーブルプレフィックス名をご使用ください。</li>
+    <li class="duck">分からない場合は、デフォルト値のままにしてください。</p>
+  </ul>
+</div>

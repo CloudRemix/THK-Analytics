@@ -1,0 +1,67 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<div class="clear"></div>
+<div class="box">
+  <h2>初心者用</h2>
+  <div>
+  <textarea name="jstag" cols="30" rows="6" readonly="readonly" onclick="this.focus();this.select()"><?php $helper->jsTag();?></textarea>
+  </div>
+  <ul>
+  <li class="duck">上のタグを解析したいサイトの全ページ（&lt;body&gt;～&lt;/body&gt;内）に貼り付けてください。</li>
+  </ul>
+</div>
+<div class="box">
+  <h2>上級者用</h2>
+<form id="download" action="<?php $helper->indexUrl('admin', 'jsdownload');?>" method="post">
+    <p class="fixbox"><input class="button" type="submit" name="download" value=" 解析用スクリプト（script.js）をダウンロードする " onclick="disableButton(this.form);" /></p>
+</form>
+  <div class="fixbox">
+  <textarea name="jstag" cols="30" rows="6" readonly="readonly" onclick="this.focus();this.select()"><?php $helper->jsAdvancedTag();?></textarea>
+  </div>
+  <ul>
+  <li class="duck">解析用スクリプトを動的に生成しないため、サーバーへの負荷を（少しだけ）軽減できます。</li>
+  <li class="duck">script.js をダウンロードして、解析したいサイトにアップロードしてください。</li>
+  <li class="duck">上のタグの（script.js までのパス）を書き換えて、解析したいサイトの全ページ（&lt;body&gt;～&lt;/body&gt;内）にタグを貼り付けてください。</li>
+  <li class="duck">script.js の中身は設置している <?php echo ThkConfig::THK_NAME; ?> のパスごとに異なります。</li>
+  <li class="duck"><span class="red bold">バージョンアップによって、解析用スクリプトの内容に変更があった場合、script.js の再ダウンロードが必要になることがあります。</span></li>
+  </ul>
+</div>
+
+<div class="box">
+  <h2>内部リンククリック測定用rel属性</h2>
+  <div class="fixbox">
+    <textarea name="relvalue" cols="30" rows="6" readonly="readonly" onclick="this.focus();this.select()"><?php echo 'rel="' . Config::CLICK_REL . '"'; ?></textarea>
+  </div>
+  <ul>
+  <li class="duck">外部リンクは自動でクリック測定されます。</li>
+  <li class="duck">自サイト内の各リンクに対してクリックを測定するには、以下のようにaタグにrel属性を指定してください。</li>
+  <li class="duck">（例）&lt;a href="http://example.com"&gt;Example&lt;/a&gt;<br /> &rarr; &lt;a <span class="bold">rel="<?php echo Config::CLICK_REL?>"</span> href="http://example.com"&gt;Example&lt;/a&gt;</li>
+  </ul>
+</div>
+
+<?php
+?>

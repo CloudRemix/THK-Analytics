@@ -1,0 +1,83 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<style type="text/css">
+div.group h1 {
+	margin-top: 20px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAAA3NCSVQICAjb4U/gAAAAMFBMVEUhZx8ndyUZlRgUshNVilMttitioGE9xz1R2FCGu4Vv526M8Ius7KvW6NTw9e/9/f0rdRtMAAAAEHRSTlP///////////////////8A4CNdGQAAAT9JREFUGJVNkD9Iw1AQh6+QSZcGSsU/HRKhk5OPIurSB49AQCw2OIlDqDhJl1DroHMebl062b0EdbcFh6JTQ0tBhEKfk9RB8lw6lsZ7tYMHB/fxHQf3gxhrSCHVUANgv6Tvwyf34I/Gq6N2KwhqZUUzKwzbQcCv2A/S50WIivuVy0Ok87DbCpq8epyzYphutNVe1dkrHvVhcqfAd8jDa7YAg25rDrsiZBmoI/AKIQ0xMmywg1vuE7IjREdnsI7KI+RGjKjuwnKT9zySE+JdT+ZhiV/LL3IaCVeHPKz5j1J6H2KoJ4GCXT2RMpJRTQdgUK+QZynlNyqwYeCRfaQOqkQGJiWy2ZORgUorwHSFbG/JN1RA+xCfOabZc1ElLPVtyTSzSqXUtzNWNNRBbZ5EPE5TVBotLxJMWYzRRYL/0v0FpfixEIcb5ooAAAAASUVORK5CYII=) 10px top no-repeat;
+}
+div.group form {
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+h2 {
+	margin: 20px 0 5px 0;
+}
+#confirm {
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 380px;
+}
+textarea {
+	width: 100%;
+	margin-bottom: 10px;
+}
+p {
+	margin: 0;
+	padding: 0 0 15px 0;
+}
+.optcolor {
+	color: #896235;
+}
+#login-link {
+	margin: 15px 0 25px 0;
+	padding: 20px 0;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+#login-link a {
+	font-size: 14px;
+	font-weight: bold;
+}
+</style>
+<div class="group">
+  <h1>インストール完了</h1>
+  <div id="confirm">
+  <p>&nbsp;</p>
+  <p>インストールを完了しました！</p>
+  <p>以下の解析用タグを解析したいサイトの全ページ<br />（&lt;body&gt;～&lt;/body&gt;内）に貼り付けてください。</p>
+  <h2>初心者用解析タグ</h2>
+  <textarea name="jstag" readonly="readonly" onclick="this.focus();this.select()"><?php $helper->jsTag();?></textarea>
+  <p class="optcolor">&nbsp;解析用タグ（上級者用）やオプションは、ログイン後に<br /><span class="bold">「アクセス解析設定 -> 解析用タグ」</span>から確認できます。</p>
+
+  <div id="login-link">
+  <p>以下のリンクよりログインしてください。<br />（タグはログイン後にも確認できます）</p>
+  <a href="<?php $helper->indexUrl('', '');?>">ログイン画面へ</a>
+  </div>
+</div>
+</div>

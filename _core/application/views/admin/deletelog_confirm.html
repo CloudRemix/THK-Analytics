@@ -1,0 +1,65 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<?php //$helper->confirmMessageTag(); ?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">全データサイズ</td>
+  <td class="label">&nbsp;</td>
+  <td class="value"><span class="hval"><?php $helper->systemDataSize();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">選択ログ総数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->selectExistLogCount();?></span></td>
+</tr>
+</table>
+
+<form action="<?php $helper->indexUrl('admin', 'deletelog_confirm');?>" method="post" id="deletelog">
+<table class="log">
+ <colgroup>
+  <col>
+  <col class="w50">
+  <col class="w50">
+ </colgroup>
+ <thead>
+ <tr>
+  <th>-</th>
+  <th>ログ名</th>
+  <th>データサイズ</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultExistLogListTag(true); ?>
+ </tbody>
+</table>
+<p><input class="button" type="submit" value=" 選択したログを削除 " onclick="disableButton(this.form, 'delete[]');" /></p>
+</form>
+<ul>
+<li class="red bold">削除したログは復元することができませんので、ご注意ください。</li>
+</ul>

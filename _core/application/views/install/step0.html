@@ -1,0 +1,85 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<style type="text/css">
+div.group h1 {
+	margin-top: 20px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAAA3NCSVQICAjb4U/gAAAAMFBMVEUFYrkNcckcdtsrg+BEjOMxputVl+VupeZAwPKAsu1N1fe0zuvH2/Dc6PPz9vj+/v4q3sTCAAAAEHRSTlP///////////////////8A4CNdGQAAASRJREFUGJVj+A8Cj5XswDQDmJwy0xvGe/f/n+XM9P9/5/wD8v4Zz33pOXPy7OTk+0Det8xkk5kzp6dUTrcF8jbPnDkz2dgcSFoDeYenz3Sec3e7+czptu8Z/j8uL659////EfeyPKDcdzdzIOf/P5fk+UDeT2M/sF2XjOqBvCdK+8G874pq+xiOKwrdB/N+CwoqMxgKCr8H8/4KCgoxGDDAeQJMQB4ThPdbgEGYYYsiI9QUAbW9DP+uCeZBbBCsA9rwR1kTzEs22g/ykWrQfCDnmWkw2C0WHSb73t007erwA/Ied3WtCDY2XbVqFch/j7qWRgCZS7tW2IBMsbCcErVqqXmy8T5QKG05989q1eJ773a/B/H+/f8/dVX4e0R4PjbSBdMAL5LqSdBuVRkAAAAASUVORK5CYII=) 10px top no-repeat;
+}
+div.group form {
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+#confirm {
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 320px;
+}
+p {
+	margin: 0;
+	padding: 25px 0 10px 0;
+}
+input.button {
+	display: block;
+	margin-right: 25px;
+	margin-left: auto;
+}
+ul {
+	margin: 0;
+	padding: 10px 5px 10px 30px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+</style>
+<div class="group">
+<?php if (!SystemUtil::isInstalled(true)) { ?>
+  <h1>インストールを開始します</h1>
+  <div id="confirm">
+  <p>インストール前の確認事項</p>
+  <ul>
+  <li class="duck"><?php echo ThkConfig::THK_NAME ?> 用にデータベース（MySQL）を用意しているかご確認ください。</li>
+  </ul>
+  <p>このインストールで行う作業は以下の通りです。</p>
+  <ul>
+  <li class="duck">データベースの接続設定</li>
+  <li class="duck">解析するサイトの名前とURLの設定</li>
+  <li class="duck">ログイン用のIDとパスワードの設定</li>
+  <li class="duck">発行された解析用タグの確認</li>
+  </ul>
+<p>問題が無ければ「次へ」ボタンを押してください。</p>
+<?php } else { ?>
+  <h1>システムの再設定を行ないます</h1>
+  <div id="group">
+  <p>「次へ」ボタンを押してください。</p>
+<?php } ?>
+<div class="install">
+  <form action="<?php $helper->indexUrl('install', 'step1'); ?>" method="post">
+    <input class="button" type="submit" value=" 次へ " onclick="disableButton(this.form);" />
+  </form>
+</div>
+</div>
+</div>

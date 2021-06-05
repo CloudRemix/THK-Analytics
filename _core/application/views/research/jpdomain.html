@@ -1,0 +1,91 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">ドメイン数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->allCount();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="uniq"></div></td>
+  <td class="label">ユニークアクセス</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->uniqueCount();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="total"></div></td>
+  <td class="label">ページビュー</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->totalCount();?></span></td>
+</tr>
+</table>
+
+<?php $helper->searchFormTag('ドメイン'); ?>
+
+<?php echo $helper->pageTag(BaseHelper::PAGE_COUNT_ALL); ?>
+
+<table class="std">
+ <colgroup>
+  <col class="w48">
+  <col class="w8">
+  <col class="w9">
+  <col class="w8">
+  <col class="w9">
+  <col class="w18">
+ </colgroup>
+ <thead>
+ <tr>
+  <th>ドメイン</th>
+  <th colspan="2">ユニーク</th>
+  <th colspan="2">ページビュー</th>
+  <th>グラフ</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultTag(); ?>
+ </tbody>
+</table>
+<?php echo $helper->pageTag(BaseHelper::PAGE_COUNT_ALL); ?>
+
+<div class="footnote">
+NOTE： 企業・学校等の法人 に分類されるドメインについて
+<ul>
+<li>ac.jp ・・・ 学校法人や教育機関など</li>
+<li>co.jp ・・・ 会社や組合など</li>
+<li>go.jp ・・・ 政府機関や行政法人など</li>
+<li>gr.jp ・・・ 法人で構成される任意団体</li>
+<li>ed.jp ・・・ 18未満を対象とした学校（幼稚園・小中高校など）など</li>
+<li>lg.jp ・・・ 地方自治体や公共団体など</li>
+<li>or.jp ・・・ 上記に該当しない法人や公的国際機関など</li>
+</ul>
+NOTE： ドメイン名について
+<ul class="eos">
+<li>「名称設定」でドメインに自由に名称をつけることができます。</li>
+<li>名称を削除し、本来のドメイン名で表示したい場合は、「アクセス解析設定 -> ドメイン名設定」からドメイン設定を削除してください。</li>
+</ul>
+</div>

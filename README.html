@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>THK Analytics Readme</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="title" content="THK Analytics Readme" />
+</head>
+<body>
+<style>
+body {
+	margin: 20px 30px;
+	padding: 0;
+	line-height: 1.6;
+	font-size: 14px;
+	color: #333;
+	background: #fff;
+}
+h1,h2 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: 16px;
+	padding-left: 10px;
+	border-left: 10px solid #ccc;
+}
+p,li {
+	margin-left: 30px;
+	padding-bottom: 10px;
+}
+li,li li {
+	margin-left: 10px;
+}
+ul,li ul {
+	margin-left: 0px;
+}
+.toc {
+	font-size: 12px;
+	line-height: 1.2;
+}
+ol.toc {
+	border: 1px solid #ccc;
+	max-width: 360px;
+	margin: 0 0 30px 10px;
+	padding: 20px 10px 10px 40px;
+}
+div {
+	margin: 0 0 20px 10px;
+	border: 1px solid #ccc;
+	background: #fcfcfc;
+	max-width: 720px;
+}
+address {
+	font-style: normal;
+	font-size: 16px;
+	font-weight: bold;
+}
+.bold {
+	font-weight: bold;
+}
+</style>
+<h1>THK Analytics - thk.kanzae.net</h1>
+<hr />
+
+<h2>目次</h2>
+
+<ol class="toc">
+<li><a href="#toc01">THK Analytics とは</a></li>
+<li><a href="#toc02">サーバー動作環境</a></li>
+<li><a href="#toc03">クライアント環境</a></li>
+<li><a href="#toc04">スマートフォン(iPhone、Android 等)の場合</a></li>
+<li><a href="#toc05">インストール</a></li>
+<li><a href="#toc06">複数サイトの解析</a></li>
+<li><a href="#toc07">GeoLiteCity.dat ファイルのアップロード</a></li>
+<li><a href="#toc08">アップグレード</a></li>
+<li><a href="#toc09">ログイン用ID・パスワードを忘れた場合</a></li>
+<li><a href="#toc10">MySQL データベースの設定を変更したい場合</a></li>
+<li><a href="#toc11">実装に関して</a></li>
+<li><a href="#toc12">Licence</a></li>
+<li><a href="#toc13">Contact</a></li>
+</ol>
+
+<h2 id="toc01">THK Analytics とは</h2>
+<p>
+高機能・高速・低メモリ・レスポンシブデザインな</br>
+PHP + MySQL で動作するサーバーインストール型 Web アクセス解析ツールです。
+</p>
+
+<h2 id="toc02">サーバー動作環境</h2>
+
+<ul>
+<li>OS<br />
+Linux、FreeBSD、Windows (Windows は XAMPP では動作確認済み、OSX は持ってないので分からない)</li>
+
+<li>Webサーバー<br />
+Apache (Apache でしか動作検証してません)</li>
+
+<li>PHP<br />
+バージョン 5.3 以上</li>
+
+<li>MySQL<br />
+バージョン 4.2 以上 (5.0以上推奨、5.6以上だとさらに高速)</li>
+</ul>
+
+<h2 id="toc03">クライアント環境</h2>
+
+<ul>
+<li>OS<br />
+Windows、OSX、Linux、FreeBSD、iOS、Android 等</li>
+
+<li>ブラウザ<br />
+Javascript、Cookie が使用できるブラウザ<br />
+(IE、Firefox、Chrome、Chromium、Opera、Sleipnir、Konqueror、Dolphin、Android標準ブラウザ 等で検証済み)</li>
+</ul>
+
+<h2 id="toc04">スマートフォン(iPhone、Android 等)の場合</h2>
+
+<ul>
+<li>レスポンシブデザインのため、スマホ等でも閲覧できます。</li>
+<li>横向き画面での閲覧を推奨。<br />
+(縦画面だとグラフ等がつぶれて、見にくいです。)</li>
+<li>閲覧中に画面サイズを変更した場合、グラフ等が画面外にはみ出すことがありますが、<br />
+再読み込みすれば、正常に閲覧できます。</li>
+</ul>
+
+<h2 id="toc05">インストール</h2>
+
+<div>
+<ol>
+<li>THK Analytics 用に MySQL のデータベースを準備しておく (文字コード UTF-8)。</li>
+
+<li>ダウンロードしたファイルを解凍してサーバーにアップロードする。<br />
+(アップロードしてからサーバー側で unzip 等で解凍してもいい。て言うかむしろ、そっちの方がはやい)</li>
+
+<li>ファイル構成<br />
+├ _core<br >
+├ _data<br >
+├ thk (名前変更可)</li>
+
+<li>インストール画面へのアクセス</li>
+<ul>
+<li>ブラウザで「http://(THK Analytics までのパス)/thk (名前変更可)/view/」にアクセス。</li>
+<li>画面に従い、必要な情報を入力していけばインストール完了。</li>
+</ul>
+
+<li>解析用コードの埋め込み</li>
+<ul>
+<li>アクセス解析をしたい Web サイトに発行された解析用コードを貼る。</li>
+</ul>
+
+<li>GeoLiteCity.dat ファイルの準備 (必須ではないが推奨)</li>
+<ul>
+<li>詳細は後述。</li>
+</ul>
+</ol>
+
+</div>
+
+<h2 id="toc06">複数サイトの解析</h2>
+<ul>
+<li>以下のようにファイルを設置してください。<br />
+├ _core<br />
+├ _data<br />
+├ thk (名前変更可)<br />
+├ site2 (thk のコピー、名前変更可)<br />
+├ site3 (thk のコピー、名前変更可)</li>
+
+<li>コピーしたディレクトリの setting の中身は .htaccess のみにしてください。<br />
+(THK Analytics は setting ディレクトリ内にファイルを作成するため、コピーする場合は .htaccess 以外は削除してください。)</li>
+
+<li>解析サイトごとにデータベースを用意するか、<br />
+同じデータベースを使用する場合は、テーブルプレフィクスを解析サイトごとに変更してください。</li>
+</ul>
+
+<h2 id="toc07">GeoLiteCity.dat ファイルのアップロード</h2>
+<p>THK Analytics ではドメイン名で国名と都道府県名を判別しますが、<br />
+GeoLiteCity.dat があれば、ドメイン名で判別できなかった国名や都道府県名を判別できることがあります。</p>
+<div>
+<ol>
+<li><a href="http://dev.maxmind.com/geoip/legacy/geolite/" target="_blank" alt="Maxmind" title="Maxmind">Maxmind</a> の Webサイトから <span class="bold">GeoLiteCity(Binary) </span>をダウンロードしてください。</li>
+<li>ファイルを解凍して、GeoLiteCity.dat を「_data」ディレクトリにアップロードしてください。</li>
+</ol>
+</div>
+
+<h2 id="toc08">アップグレード</h2>
+
+<div>
+<ol>
+<li>本体とDBアップグレード用のファイルをダウンロード。</li>
+<li>ダウンロードした本体とDBアップグレード用ファイルを解凍</li>
+<li>解凍した本体のファイルを古いファイルに上書きする。<br />
+(特に指定が無い限り <span class="bold">_core</span> フォルダの上書きだけで OK です)。</li>
+<li>DBアップデート用ファイル（_upgrade）を以下のように設置。<br />
+　├ _core<br />
+　├ _data<br />
+　├ thk (名前変更可)<br />
+　├ <span class="bold">_upgrade</span></li>
+<li>ブラウザで「http://(THK Analytics までのパス)/thk (名前変更可)/view/」にアクセス。</li>
+<li>画面の指示に従い、データベースをアップグレードする。<br />
+<span class="bold">複数サイトの解析を行っている場合は、解析サイトごとにデータベースをアップグレードしてください</span><br />
+（上記「名前変更可」の部分を解析サイトごとにブラウザでアクセスする）。</li>
+<li>_upgrade をディレクトリごと削除。</li>
+<li>以上でアップグレードは完了です。</li>
+</ol>
+</div>
+
+<h2 id="toc09">ログイン用ID・パスワードを忘れた場合</h2>
+<p>ログイン用のID・パスワードを忘れてしまった時は、以下の操作でシステムの再設定を行ってください。</p>
+
+<div>
+<ol>
+<li>thk/setting/ ディレクトリの権限(パーミッション) を 755 に変更。</li>
+<li>thk/setting/siteurl.php を削除。</li>
+<li>ブラウザで「http://Webサーバー/thk (名前変更可)/view/」にアクセス。</li>
+</ol>
+</div>
+
+<h2 id="toc10">MySQL データベースの設定を変更したい場合</h2>
+<p>データベースの設定を変更する場合は、以下の操作でシステムの再設定を行ってください。</p>
+
+<div>
+<ol>
+<li>thk/setting/ ディレクトリの権限(パーミッション) を 755 に変更。</li>
+<li>thk/setting/database.php を削除。</li>
+<li>ブラウザで「http://Webサーバー/thk (名前変更可)/view/」にアクセス。</li>
+</ol>
+</div>
+
+<h2 id="toc11">実装に関して</h2>
+<p>THK Analytics では、以下のライブラリ等を利用しています。</p>
+
+<ul>
+<li>ベース部分
+<ul><li><a href="http://lite.research-artisan.net/main/" alt="Research Artisan Lite" title="Research Artisan Lite" target="_blank">Research Artisan Lite</a></li></ul></li>
+
+<li>折れ線グラフ、積み上げグラフ、一部の円グラフの描画
+<ul><li><a href="http://ccchart.com/" alt="ccchart" title="ccchart" target="_blank">ccchart</a></li></ul></li>
+
+<li>円グラフの描画
+<ul><li><a href="http://www.html5.jp/library/graph_circle.html" alt="JavaScript Library - HTML5.JP" title="JavaScript Library - HTML5.JP" target="_blank">JavaScript Library - HTML5.JP</a></li></ul></li>
+
+<li>ユーザーエージェントの解析 Level.1
+<ul><li><a href="https://github.com/ua-parser/uap-php" alt="ua-parser PHP Library" title="ua-parser PHP Library" target="_blank">ua-parser PHP Library</a></li></ul></li>
+
+<li>ユーザーエージェントの解析 Level.2 (ua-parser で解析できなかった部分)
+<ul><li><a href="https://github.com/woothee/woothee" alt="Woothee PHP" title="Woothee PHP" target="_blank">Woothee PHP</a></li></ul></li>
+
+<li>CSS ファイルの最適化(圧縮)
+<ul><li><a href="https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port" alt="YUI CSS compressor" title="YUI CSS compressor" target="_blank">YUI CSS compressor</a></li></ul></li>
+
+<li>Javascript ファイルの最適化(圧縮)
+<ul><li><a href="https://github.com/rgrove/jsmin-php" alt="JSMin PHP" title="JSMin PHP" target="_blank">JSMin PHP</a></li></ul></li>
+</ul>
+
+
+<h2 id="toc12">Licence</h2>
+<ul>
+<li><a href="http://www.gnu.org/licenses/gpl-2.0.html" alt="GPL v2 or later" title="GPL v2 or later" target="_blank">GPL v2 or later</a></li>
+</ul>
+
+<h2 id="toc13">Contact</h2>
+<ul>
+<li>公式サイト： <a href="http://thk.kanzae.net/analytics/" alt="THK Analytics" title="THK Analytics" target="_blank">THK Analytics</a></li>
+<li>開発者ブログ: <a href="http://thk.kanzae.net/" alt="Thought is free" title="Thought is free" target="_blank">Thought is free</a></li>
+<li>Twitter: LunaNuko</li>
+</ul>
+
+<hr />
+
+<address><a href="http://thk.kanzae.net/analytics/" target="_blank">THK Analytics</a></address>
+<address>Copyright &copy; 2015 Thought is free All Rights Reserved.</address>
+
+</body>
+</html>

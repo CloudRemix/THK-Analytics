@@ -1,0 +1,56 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<style type="text/css">
+div.group h1 {
+	margin-top: 20px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAAA3NCSVQICAjb4U/gAAAAMFBMVEUAKocCRJvPBRgMXacdcLGpT3M8fLVSjLxxp87Kh56JudqbxN+szuXE2Oba5Or39/ep6X6bAAAAEHRSTlP///////////////////8A4CNdGQAAAQtJREFUGJVVzz9LA0EQh+FJY6EWSvwEAzZWwqUXYfEPIsJV2of7AoIbEK9SPA7U1oAiFhLZQywsTwxYr3XgcFMJgubGUtDIOrucEN/uYfZXLNhSPxmOiD4sDPN77d1nQqEypvYiUErlZ9qdnZJEXW25127MSkJMs9yPQbYOEOdUlrM17MgQEVNecxBFDNxUniBW24jt0xtjCqWgvmERL7671tq3DsCC09cta9gEmOh7/cijZwEwaRDPe3uFWP+n0VtpTM+JQnx4jYnKfdY4Pc7SSzyQTcEa45/QXfwuhFPtmGgQVJqqzaTX28HKodf8NBdwDSGWYHFEy3D5p0CINfhk1CudgO1EVXLX/gLdKbEUXfzjmAAAAABJRU5ErkJggg==) 10px top no-repeat;
+}
+div.group form {
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+#inputs {
+	width: 340px;
+}
+p {
+	margin: 0;
+	padding: 25px 0 10px 0;
+}
+.version {
+	font-size: 14px;
+	font-weight: bold;
+}
+.msg {
+	padding: 15px 0 25px 0;
+}
+</style>
+<div class="group">
+<h1>アップグレード</h1>
+<div id="inputs">
+<?php $helper->upgradeDisp();?>
+</div>
+</div>

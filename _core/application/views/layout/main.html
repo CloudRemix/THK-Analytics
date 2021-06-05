@@ -1,0 +1,111 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title><?php $helper->siteData('sitename', true);?><?php $helper->actionTitle(true);?><?php echo ThkConfig::THK_NAME;?></title>
+<meta charset="<?php echo $charset ?>" />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="title" content="<?php echo ThkConfig::THK_NAME;?>" />
+<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+<link rel="stylesheet" type="text/css" href="./style.php" media="all" />
+<link rel="stylesheet" type="text/css" href="./print.css" media="print" />
+<?php if( $helper->isMenuWrite() ) : ?>
+<script type="text/javascript" src="./js.php" charset="<?php echo $charset ?>"></script>
+<?php endif; ?>
+<?php if( isset( MenuConfig::$useCcchart[$action] ) ) : ?>
+<script type="text/javascript" src="./ccchart.php" charset="<?php echo $charset ?>"></script>
+<?php endif; ?>
+<?php if( isset( MenuConfig::$usePiechart[$action] ) ) : ?>
+<script type="text/javascript" src="./piechart.php" charset="<?php echo $charset ?>"></script>
+<?php endif; ?>
+</head>
+<body>
+<div id="primary">
+<div id="container"<?php if( !$helper->isMenuWrite() ) echo ' class="login"'; ?>>
+<div id="header">
+<div id="banner"><a href="<?php $helper->indexUrl('', '');?>"><img src="./thk_analytics.png" width="224" height="42" alt="<?php echo ThkConfig::THK_NAME;?>" /></a></div>
+</div>
+<?php if( !$helper->isMenuWrite() ) { ?>
+<div id="admin">
+<?php require $viewFile;?>
+</div>
+<?php } else { ?>
+<div id="contents">
+<div class="mobile-nav">メニュー</div>
+<?php $helper->headerMenu();?>
+<div id="main">
+<div id="post">
+<div id="posthead">
+<?php $helper->headerTag();?>
+</div>
+<?php $helper->menuSelectHeaderTag();?>
+<?php $helper->memoryError();?>
+<?php require $viewFile;?>
+</div>
+</div>
+<div id="navcont">
+<div id="navmenu">
+<div class="navmonth">
+<?php $helper->_ddCheck();?>
+<?php echo $helper->menuCalendarTag();?>
+</div>
+<?php echo $helper->menuTermFormTag();?>
+<?php $helper->menuTitlesTag();?>
+</div>
+</div>
+
+<?php if( $controller === "research" && $action !== "download" ) { ?>
+<div id="headerinfo">
+<div class="print"><a id="preview" href="javascript:PrintPreview();"><img src="<?php echo ImageList::$generalImages['print'] ?>" width="22" height="22" alt="印刷">&nbsp;&nbsp;Print</a></div>
+<div class="online"><?php $helper->onlineUser(); ?></div>
+</div>
+<?php } ?>
+<?php } ?>
+<div id="footer">
+<?php if( $helper->isMenuWrite() ) : ?>
+<div style="color:#888;font-size:10px;text-align:right">
+Processing time [<?php echo SystemUtil::getProcessTime(); ?>] : Memory Usage [<?php echo SystemUtil::getUsageMemory(); ?>] : Peak Memory Usage [<?php echo SystemUtil::getUsageMemory(true); ?>]
+</div>
+<?php endif; ?>
+<div class="copyright">
+<address><?php $helper->versionTag();?></address>
+<address><?php $helper->copyrightTag();?></address>
+</div>
+<div class="copyright">
+The <?php echo ThkConfig::THK_NAME;?> has been developed on the basis of the following.
+<address><?php $helper->ralite_versionTag();?></address>
+<address><?php $helper->ralite_copyrightTag();?></address>
+</div>
+</div>
+</div>
+<?php echo $helper->headNaviCalender();?>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<?php $helper->errorMessageTag(); ?>
+<form action="<?php $helper->indexUrl('admin', 'syssetting');?>" method="post">
+  <div class="box">
+    <h2>バージョン情報</h2>
+    <p class="fixbox"><span class="edittitle"><?php echo ThkConfig::THK_NAME;?> ver.<?php $helper->version(); ?></span></p>
+    <p class="fixbox"><span class="edittitle"><?php $helper->copyrightTag();?></span></p>
+    <p></p>
+  </div>
+  <div class="box">
+    <p class="helps">タイムゾーン</p>
+    <div class="fixbox">
+      <select name="timezone">
+      <?php $helper->systemData('timezone'); ?>
+      </select>
+    </div>
+  </div>
+  <div class="box">
+    <p class="helps">アプリケーションログ出力レベル&nbsp;<span class="necessary">*</span></p>
+    <div class="fixbox">
+      <select name="apploglevel">
+      <?php $helper->systemData('apploglevel'); ?>
+      </select>
+    </div>
+    <ul>
+      <li class="duck">アプリケーションログを出力するレベルを設定してください。</li>
+      <li class="duck">レベルは重要度が高い順に上から表示されています。設定した値より低いレベルのアプリケーションログは出力されません。</li>
+      <li class="duck">ログはエラーが発生した場合等の原因究明に用いるものです。通常運用においては意識する必要はありません。</li>
+      <li class="duck">ログは "<?php echo DIRECTORY_SEPARATOR ?>_core<?php echo DIRECTORY_SEPARATOR ?>application<?php echo DIRECTORY_SEPARATOR ?>tmp<?php echo DIRECTORY_SEPARATOR ?>logs<?php echo DIRECTORY_SEPARATOR ?>" に出力されます。</li>
+    </ul>
+  </div>
+  <div class="fixbox"><input class="button" type="submit" value=" 更新 " onclick="disableButton(this.form);" /></div>
+</form>

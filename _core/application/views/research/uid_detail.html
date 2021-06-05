@@ -1,0 +1,87 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<table class="hval clear">
+<?php $helper->resultUidDetailHeaderTag(); ?>
+<tr>
+  <td class="label">&nbsp;</td>
+  <td class="label">&nbsp;</td>
+  <td class="label">&nbsp;</td>
+</tr>
+<tr>
+  <td class="label">アクセス回数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->totalCount();?></span></td>
+</tr>
+<tr>
+  <td class="label">リンククリック回数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->clickLinkCount();?></span></td>
+</tr>
+<tr>
+  <td class="label">ボタンクリック回数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->clickBtnCount();?></span></td>
+</tr>
+<tr>
+  <td class="label">AdSenseクリック回数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->clickAdsenseCount();?></span></td>
+</tr>
+</table>
+
+<?php echo $helper->pageTag(BaseHelper::PAGE_COUNT_ALL); ?>
+
+<table class="std">
+ <thead>
+ <tr>
+  <th class="w20 nobreak" colspan="2"><div class="detail">アクセス日時</div></th>
+  <th class="w80">ページ遷移</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultUidDetailTag(); ?>
+ </tbody>
+</table>
+<?php echo $helper->pageTag(BaseHelper::PAGE_COUNT_ALL); ?>
+
+<div class="footnote">
+NOTE： 閲覧状況の見方（アクセス解析設定で時間間隔を変更できます）
+<table>
+<tbody>
+<tr><td><span class="good">Good!!</span></td><td>&#187;&nbsp;ちゃんと読まれた</td></tr>
+<tr><td><span class="bad">Bad&#133;</span></td><td>&#187;&nbsp;あまり読まれていない</td></tr>
+<tr><td><span class="revisit">ReVisit!</span></td><td>&#187;&nbsp;この後のアクセスは再訪問（外部サイトへアクセスしていた等が考えられます）</td></tr>
+<tr><td><span class="last">End&#133;</span></td><td>&#187;&nbsp;１日の閲覧はこれで終了</td></tr>
+</tbody>
+</table>
+
+NOTE： 用語について
+<ul class="eos">
+<li><?php echo Config::FROM_NO_SCRIPT; ?>・・・スクリプトを無効にしている環境からのアクセスです。</li>
+<li><?php echo Config::DIRECT_ACCESS; ?>・・・ブラウザのお気に入りやセッションの再開、URLを直接入力してのアクセス等が考えられます。</li>
+</ul>
+</div>

@@ -1,0 +1,51 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<?php $helper->errorMessageTag(); ?>
+<form id="download" action="<?php $helper->indexUrl('research', 'download');?>" method="post">
+  <div class="box">
+    <p class="helps">ダウンロード対象の期間</p>
+    <div class="fixbox">
+      <?php $helper->menuTermSelectTag('from'); ?>&nbsp;～&nbsp;<?php $helper->menuTermSelectTag('to'); ?>
+    </div>
+    <ul>
+      <li class="duck">ご利用のインターネット環境によっては、ダウンロードに時間がかかる場合があります。</li>
+      <li class="duck">データ量が多すぎるとメモリ不足になることがあります。その場合、期間指定を短くするなどしてください。</li>
+      <li class="duck">ダウンロードしたログはCSV形式で保存されます。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">ダウンロードするログの文字コード</p>
+    <div class="fixbox"><input type="radio" class="radio" name="charset" value="<?php echo Config::UTF;?>"  <?php $helper->radioChecked('charset', Config::UTF);?> />&nbsp;UTF-8</div>
+    <div class="fixbox"><input type="radio" class="radio" name="charset" value="<?php echo Config::SJIS;?>" <?php $helper->radioChecked('charset', Config::SJIS);?> />&nbsp;Shift_JIS</div>
+    <div class="fixbox"><input type="radio" class="radio" name="charset" value="<?php echo Config::EUC;?>" <?php $helper->radioChecked('charset', Config::EUC);?> />&nbsp;EUC-JP</div>
+    <ul>
+      <li class="duck">ご利用の環境にあった、文字コードを選択してください。（Windowsであれば、"<?php echo Config::SJIS;?>"が適しています）</li>
+      <li class="duck">文字コードを正しく選択しなければ、ダウンロードしたファイルが文字化けすることがあります。</li>
+    </ul>
+  </div>
+  <p><input class="button" type="submit" name="download" value=" ログをダウンロードする " onclick="disableButton(this.form);" /></p>
+</form>

@@ -1,0 +1,359 @@
+/*
+---------------------------------------------------------------
+  Note that styles you apply to the main menu items are inherited by the sub menus items too.
+  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example: 
+  .sm-thk > li > a { ... } instead of .sm-thk a { ... }
+---------------------------------------------------------------*/
+
+
+/* Menu box
+===================*/
+
+	.sm-thk {
+		background: #676767; /* Old browsers */
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+		-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+		box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	}
+	.sm-thk-vertical {
+		-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+		-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+		box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	}
+	.sm-thk ul {
+		border: 1px solid #a9a9a9;
+		padding: 7px 0;
+		background: #676767;
+		-moz-border-radius: 0 0 4px 4px;
+		-webkit-border-radius: 0 0 4px 4px;
+		border-radius: 0 0 4px 4px;
+		-moz-box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+		-webkit-box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+		box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+	}
+	/* for vertical main menu subs and 2+ level horizontal main menu subs round all corners */
+	.sm-thk-vertical ul,
+	.sm-thk ul ul {
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-thk a {
+		padding: 5px 18px 10px 18px;
+		color: #fff;
+		font-size: 12px;
+		line-height: 1.6;
+		text-decoration: none;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+		transition: .3s ease 0s;
+	}
+	.sm-thk a: hover, .sm-thk a: focus, .sm-thk a: active,
+	.sm-thk a.highlighted {
+		background: #333; /* Old browsers */
+		color: #fff;
+	}
+	.sm-thk-vertical a {
+		padding: 8px 40px 8px 23px;
+		background: #676767; /* Old browsers */
+	}
+	.sm-thk ul a {
+		padding: 8px 40px 8px 23px;
+		background: transparent;
+		color: #fff;
+		font-size: 12px;
+		text-shadow: none;
+	}
+	.sm-thk ul a: hover, .sm-thk ul a: focus, .sm-thk ul a: active,
+	.sm-thk ul a.highlighted {
+		background: #333; /* Old browsers */
+		color: #fff;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	}
+	/* current items - add the class manually to some item or check the "markCurrentItem" script option */
+	.sm-thk a.current, .sm-thk a.current: hover, .sm-thk a.current: focus, .sm-thk a.current: active,
+	.sm-thk ul a.current, .sm-thk ul a.current: hover, .sm-thk ul a.current: focus, .sm-thk ul a.current: active {
+		background: #4283de;
+		color: #fff;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+	}
+	/* round the left corners of the first item for horizontal main menu */
+	.sm-thk > li: first-child > a {
+		-moz-border-radius: 4px 0 0 4px;
+		-webkit-border-radius: 4px 0 0 4px;
+		border-radius: 4px 0 0 4px;
+	}
+	/* round the corners of the first and last items for vertical main menu */
+	.sm-thk-vertical > li: first-child > a {
+		-moz-border-radius: 4px 4px 0 0;
+		-webkit-border-radius: 4px 4px 0 0;
+		border-radius: 4px 4px 0 0;
+	}
+	.sm-thk-vertical > li: last-child > a {
+		-moz-border-radius: 0 0 4px 4px;
+		-webkit-border-radius: 0 0 4px 4px;
+		border-radius: 0 0 4px 4px;
+	}
+	.sm-thk a.has-submenu {
+
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-thk a span.sub-arrow {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -5px;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		border-width: 5px; /* tweak size of the arrow */
+		border-style: solid dashed dashed dashed;
+		border-color: #ccc transparent transparent transparent;
+	}
+	.sm-thk-vertical a span.sub-arrow,
+ 	.sm-thk ul a span.sub-arrow {
+		bottom: auto;
+		top: 50%;
+		margin-top: -5px;
+		right: 15px;
+		left: auto;
+		margin-left: 0;
+		border-style: dashed dashed dashed solid;
+		border-color: transparent transparent transparent #ccc;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-thk li {
+		border-left: 1px solid #999;
+	}
+	.sm-thk li: first-child,
+	.sm-thk-vertical li,
+	.sm-thk ul li {
+		border-left: 0;
+	}
+
+
+/* Scrolling arrows containers for tall sub menus - test sub menu:  "Sub test" -> "more..." -> "more..." in the default download package
+===================*/
+
+	.sm-thk span.scroll-up, .sm-thk span.scroll-down {
+		position: absolute;
+		display: none;
+		visibility: hidden;
+		overflow: hidden;
+		background: #fff;
+		height: 20px;
+		/* width and position will be automatically set by the script */
+	}
+	.sm-thk span.scroll-up-arrow, .sm-thk span.scroll-down-arrow {
+		position: absolute;
+		top: -2px;
+		left: 50%;
+		margin-left: -8px;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		border-width: 8px; /* tweak size of the arrow */
+		border-style: dashed dashed solid dashed;
+		border-color: transparent transparent #666 transparent;
+	}
+	.sm-thk span.scroll-down-arrow {
+		top: 6px;
+		border-style: solid dashed dashed dashed;
+		border-color: #666 transparent transparent transparent;
+	}
+
+
+
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+
+/* decrease horizontal main menu items left/right padding to avoid wrapping */
+@media screen and (max-width:  850px) {
+	.sm-thk: not(.sm-thk-vertical) > li > a {
+		font-size: 11px;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}
+@media screen and (max-width:  750px) {
+	.sm-thk: not(.sm-thk-vertical) > li > a {
+		font-size: 11px;
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+}
+
+@media screen and (max-width:  640px) {
+
+	/* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+	ul.sm-thk{width: auto !important;}
+	ul.sm-thk ul{display: none;position: static !important;top: auto !important;left: auto !important;margin-left: 0 !important;margin-top: 0 !important;width: auto !important;min-width: 0 !important;max-width: none !important;}
+	ul.sm-thk>li{float: none; border-top: 1px solid #a9a9a9;}
+	ul.sm-thk>li:first-child{border-top: 0;}
+	ul.sm-thk>li>a,ul.sm-thk ul.sm-nowrap>li>a{white-space: normal;}
+	ul.sm-thk iframe{display: none;}
+
+	/* Uncomment this rule to disable completely the sub menus for small screen devices */
+	/*.sm-thk ul, .sm-thk span.sub-arrow, .sm-thk iframe {
+		display: none !important;
+	}*/
+
+
+/* Menu box
+===================*/
+
+	.sm-thk {
+		background: transparent;
+		-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+		-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+		box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	}
+	.sm-thk ul {
+		border: 0;
+		padding: 0;
+		background: #fff;
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		border-radius: 0;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	.sm-thk ul ul {
+		/* darken the background of the 2+ level sub menus and remove border rounding */
+		background: rgba(100,100,100,0.1);
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		border-radius: 0;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-thk a {
+		padding: 6px 5px 6px 28px !important; /* add some additional left padding to make room for the sub indicator */
+		background: #676767 !important; /* Old browsers */
+		color: #fff !important;
+		font-size: 12px;
+	}
+	.sm-thk ul a {
+		background: transparent !important;
+		color: #333 !important;
+		text-shadow: none !important;
+	}
+	.sm-thk a.current {
+		background: #4283de !important; /* Old browsers */
+		color: #fff !important;
+	}
+	/* add some text indentation for the 2+ level sub menu items */
+	.sm-thk ul a {
+		border-left: 8px solid transparent;
+	}
+	.sm-thk ul ul a {
+		border-left: 16px solid transparent;
+	}
+	.sm-thk ul ul ul a {
+		border-left: 24px solid transparent;
+	}
+	.sm-thk ul ul ul ul a {
+		border-left: 32px solid transparent;
+	}
+	.sm-thk ul ul ul ul ul a {
+		border-left: 40px solid transparent;
+	}
+	/* round the corners of the first and last items */
+	.sm-thk > li: first-child > a {
+		-moz-border-radius: 4px 4px 0 0;
+		-webkit-border-radius: 4px 4px 0 0;
+		border-radius: 4px 4px 0 0;
+	}
+	/* presume we have 4 levels max */
+	.sm-thk > li: last-child > a,
+	.sm-thk > li: last-child > ul > li: last-child > a,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > a,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > a,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > a,
+	.sm-thk > li: last-child > ul,
+	.sm-thk > li: last-child > ul > li: last-child > ul,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > ul,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > ul {
+		-moz-border-radius: 0 0 4px 4px;
+		-webkit-border-radius: 0 0 4px 4px;
+		border-radius: 0 0 4px 4px;
+	}
+	/* highlighted items, don't need rounding since their sub is open */
+	.sm-thk > li: last-child > a.highlighted,
+	.sm-thk > li: last-child > ul > li: last-child > a.highlighted,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > a.highlighted,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > a.highlighted,
+	.sm-thk > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > ul > li: last-child > a.highlighted {
+		-moz-border-radius: 0;
+		-webkit-border-radius: 0;
+		border-radius: 0;
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-thk a span.sub-arrow,
+	.sm-thk ul a span.sub-arrow {
+		top: 50%;
+		margin-top: -9px;
+		right: auto;
+		left: 6px;
+		margin-left: 0;
+		width: 17px;
+		height: 17px;
+		font: bold 16px/16px monospace !important;
+		text-align: center;
+		border: 0;
+		text-shadow: none;
+		background: rgba(0,0,0,0.1);
+		-moz-border-radius: 100px;
+		-webkit-border-radius: 100px;
+		border-radius: 100px;
+	}
+	/* Hide sub indicator "+" when item is expanded - we enable the item link when it's expanded */
+	.sm-thk a.highlighted span.sub-arrow {
+		display: none !important;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-thk li {
+		border-left: 0;
+	}
+	.sm-thk ul li {
+		border-top: 1px solid rgba(0,0,0,0.05);
+	}
+	.sm-thk ul li: first-child {
+		border-top: 0;
+	}
+
+}

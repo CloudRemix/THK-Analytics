@@ -1,0 +1,56 @@
+#mopen {
+	cursor: pointer;
+}
+#modal {
+	display: none;
+	width: 200px;
+	margin: 0;
+	padding: 10px 20px;
+	border: 1px solid #a9a9a9;
+	background: #fff;
+	position: absolute;
+	top: 3%;
+	left: 10%;
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	text-align: center;
+	z-index: 30;
+}
+@media screen and (max-width: 640px) {
+	#modal {
+		top: 1%;
+	}
+}
+#modal th,
+#modal td {
+	font-size: 13px;
+}
+#modal .monthbutton a {
+	color: #333;
+}
+
+#overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	//height: 125px;
+	z-index: 20;
+	background-color:rgba(0,0,0,0.75);
+}
+#modal .button-link {
+	display: inline;
+	margin: auto;
+	width: 100%;
+	background: none;
+	text-decoration: underline;
+	color: #0050af;
+}
+#modal .button-link:hover {
+	cursor: pointer;
+	color: #e16871;
+}

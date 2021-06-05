@@ -1,0 +1,73 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<div class="clear"></div>
+<div class="box">
+  <h2>PHP埋め込み用コード</h2>
+  <div class="fixbox">
+  <textarea name="jstag" cols="30" rows="6" readonly="readonly" onclick="this.focus();this.select()"><?php $helper->phpCode();?></textarea>
+  </div>
+  <ul>
+    <li class="duck">解析用タグ（Javascript）との併用はできません。 </li>
+    <li class="duck">Javascript では解析できないタイプのクローラー（検索ロボット）等のアクセスも漏れなく収集できます。</li>
+    <li class="duck">Javascript が OFF のブラウザからのアクセスでもリファラー（リンク元）を取得できます</li>
+    <li class="duck">PHP埋め込み用コードでは、<span class="red bold">以下の内容については解析できません</span>。</li>
+    <li style="list-style-type:none">
+      <ul>
+        <li class="duck">リンククリック</li>
+        <li class="duck">ボタンクリック</li>
+        <li class="duck">Adsense クリック関連項目</li>
+        <li class="duck">画面解像度</li>
+        <li class="duck">画面色数</li>
+        <li class="duck">Javascript / Cookie</li>
+        <li class="duck">各ページのタイトル（ページタイトルを取得したい場合は、後述のタイトル設定用コードをご利用ください）</li>
+      </ul>
+    </li>
+    <li class="duck">PHP埋め込み用コードでは、外部サーバー（<?php echo ThkConfig::THK_NAME;?> とは別のサーバー）にあるサイトを解析することはできません。</li>
+    <li class="duck">http で始まる include 文はご利用頂けません。</li>
+  </ul>
+</div>
+<div class="box">
+  <h2>PHP埋め込み用コード（タイトル設定用）</h2>
+  <div class="fixbox">
+  <textarea name="jstag" cols="30" rows="6" readonly="readonly" onclick="this.focus();this.select()"><?php $helper->phpCode(true);?></textarea>
+  </div>
+  <ul>
+    <li class="duck">_thkTrackのパラメータにタイトルを渡すことで、各ページのタイトルを解析結果に表示できます。</li>
+    <li style="list-style-type:none">
+      <ul>
+        <li class="duck">（例）_thkTrack('トップページ');</li>
+      </ul>
+    </li>
+    <li class="duck">WordPress 等の場合、変数や関数を設定することで各ページのタイトルを解析結果に表示できます。</li>
+    <li style="list-style-type:none">
+      <ul>
+        <li class="duck">（例1）_thkTrack( wp_title('-', false, 'left') ); ← WordPress の場合。</li>
+        <li class="duck">（例2）_thkTrack( $title ); ← PHP で作成されたページなどの場合。</li>
+      </ul>
+    </li>
+  </ul>
+</div>

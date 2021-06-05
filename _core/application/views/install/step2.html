@@ -1,0 +1,82 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<style type="text/css">
+div.group h1 {
+	margin-top: 20px;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAAA3NCSVQICAjb4U/gAAAAGFBMVEVMVl3lICBVohD0fg5znc6K4DX5rUD8/PygRt+iAAAACHRSTlP/////////AN6DvVkAAAA1SURBVBiVYygvLy9SUlIvBwMGEC80lBY8ZWNjcyReWhpBXgEDAxMSz8WFMp6hoKA43XkoAAC+5WjLqnmhPAAAAABJRU5ErkJggg==) 10px top no-repeat;
+}
+div.group form {
+	margin: 0;
+	padding: 0 0 20px 0;
+}
+#inputs {
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 300px;
+}
+#inputs p {
+	margin: 0;
+	padding: 15px 0 5px 0;
+}
+#inputs input.button {
+	display: block;
+	margin-left: auto;
+}
+#inputs input.text {
+	margin: 0;
+	padding: 4px 4px 4px 38px;
+	font-size: 14px;
+	width: 300px;
+}
+ul {
+	margin: 10px 10px 10px 20px;
+	padding: 0;
+}
+</style>
+<div class="group">
+<?php $helper->errorMessageTag(); ?>
+  <h1>解析するサイトとログインの設定</h1>
+  <form action="<?php $helper->indexUrl('install', 'step2');?>" method="post">
+    <div id="inputs">
+      <p>サイト名&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="sitename" maxlength="100" name="sitename" type="text" value="<?php $helper->siteName();?>" />
+      <p>URL&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="url" maxlength="100" name="url" type="text" value="<?php $helper->url();?>" />
+    </div>
+    <div id="inputs">
+      <p>ユーザー名&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="loginid" maxlength="100" name="loginid" type="text" value="<?php $helper->loginID();?>" />
+      <p>パスワード&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="pswd" maxlength="100" name="pswd" type="password" value="" />
+      <p>パスワード確認&nbsp;<span class="necessary">*</span></p>
+      <input class="text" id="pswd_confirm" maxlength="100" name="pswd_confirm" type="password" value="" />
+      <p>&nbsp;</p>
+      <input class="button" name="commit" onclick="disableButton(this.form);" type="submit" value=" 次へ " />
+    </div>
+  </form>
+</div>

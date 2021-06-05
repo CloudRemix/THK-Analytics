@@ -1,0 +1,90 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">リンク元ページ数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->allCount();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="uniq"></div></td>
+  <td class="label">ユニークアクセス</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->uniqueCount();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="total"></div></td>
+  <td class="label">ページビュー</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->totalCount();?></span></td>
+</tr>
+</table>
+
+<table class="std">
+ <colgroup>
+  <col class="w48">
+  <col class="w8">
+  <col class="w9">
+  <col class="w8">
+  <col class="w9">
+  <col class="w18">
+ </colgroup>
+ <thead>
+ <tr>
+  <th>リンク元ページ - TOP<?php $helper->dispView(); ?></th>
+  <th colspan="2">ユニーク</th>
+  <th colspan="2">ページビュー</th>
+  <th>グラフ</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->digestReferer(); ?>
+ </tbody>
+</table>
+
+<table class="std">
+ <colgroup>
+  <col class="w48">
+  <col class="w8">
+  <col class="w9">
+  <col class="w8">
+  <col class="w9">
+  <col class="w18">
+ </colgroup>
+ <thead>
+ <tr>
+  <th>検索フレーズ - TOP<?php $helper->dispView(); ?></th>
+  <th colspan="2">ユニーク</th>
+  <th colspan="2">ページビュー</th>
+  <th>グラフ</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->digestKey(); ?>
+ </tbody>
+</table>

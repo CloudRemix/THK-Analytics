@@ -1,0 +1,142 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<?php $helper->errorMessageTag(); ?>
+<form action="<?php $helper->indexUrl('admin', 'setting');?>" method="post">
+  <div class="box">
+    <p class="helps">サイト名&nbsp;<span class="necessary">*</span></p>
+    <div class="fixbox">
+      <input id="sitename" maxlength="100" name="sitename" type="text" value="<?php $helper->siteName(); ?>" placeholder="サイト名" />
+    </div>
+    <p class="helps">URL&nbsp;<span class="necessary">*</span></p>
+    <div class="fixbox">
+      <?php $helper->url(); ?>
+    </div>
+<?php if( !ThkUtil::isWindows() ): ?>
+    <p class="helps">&nbsp;</p>
+    <p class="helps">setting ディレクトリのアクセス権</p>
+    <div class="fixbox">
+      <input type="checkbox" class="checkbox" name="writable" value="<?php echo Config::ON; ?>" <?php $helper->settingDirWritable();?> />&nbsp;書き込み不可にする
+    </div>
+<?php endif; ?>
+    <ul>
+      <li class="duck">URLを変更する場合は、一時的に setting ディレクトリのアクセス権（パーミッション）を書き込み可能にしてください。</li>
+      <li class="duck">セキュリティ上、普段は <span class="red">setting ディレクトリを書き込み不可</span>にしてください。</li>
+      <li class="duck">アンインストール（THK Analytics の削除）する時は、チェックを外して書き込みできるようにしてください。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">ユーザー名&nbsp;<span class="necessary">*</span></p>
+    <div class="fixbox">
+      <input id="loginid" maxlength="100" name="loginid" type="text" value="<?php $helper->loginID(); ?>" placeholder="ユーザー名" />
+    </div>
+  </div>
+  <div class="box">
+    <p class="helps">パスワード</p>
+    <div class="fixbox">
+      <input id="pswd" maxlength="100" name="pswd" type="password" value="" placeholder="パスワード" />
+    </div>
+    <p class="helps">パスワード確認</p>
+    <div class="fixbox">
+      <input id="pswd_confirm" maxlength="100" name="pswd_confirm" type="password" value="" placeholder="パスワード確認" />
+    </div>
+    <ul>
+      <li class="duck">パスワードを変更する場合のみ、パスワードを入力してください。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">管理者のアクセス</p>
+    <div class="fixbox">
+      <input type="checkbox" class="checkbox" name="nocount" value="<?php echo Config::ON; ?>" <?php $helper->noCount();?> />&nbsp;管理者のアクセスをカウントしない
+    </div>
+    <ul>
+      <li class="duck">チェックすると管理者のアクセスをアクセス数にカウントしません。</li>
+      <li class="duck">この機能はCookieを利用していますので、複数のブラウザでご利用の場合はブラウザ毎に設定する必要があります。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">クローラーのアクセス</p>
+    <div class="fixbox">
+      <input type="checkbox" class="checkbox" name="nocrawler" value="<?php echo Config::ON; ?>" <?php $helper->noCrawler(); ?> />&nbsp;クローラーのアクセスをカウントしない
+    </div>
+    <ul>
+      <li class="duck">チェックするとクローラー（検索ロボット）のアクセスをアクセス数にカウントしません。</li>
+      <li class="duck">チェックを付けても、<span class="bold">「リンク元 -> クローラー」</span> でクローラーのアクセスを確認できます。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">ソートの優先順位</p>
+    <div class="fixbox"><input type="radio" class="radio" name="sortkey" value="<?php echo Config::ON; ?>" <?php $helper->sortKey( Config::ON ); ?> />&nbsp;トータルアクセス・ページビューの多い順でソート</div>
+    <div class="fixbox"><input type="radio" class="radio" name="sortkey" value="<?php echo Config::OFF; ?>" <?php $helper->sortKey( Config::OFF ); ?> />&nbsp;ユニークアクセスの多い順でソート</div>
+  </div>
+  <div class="box">
+    <p class="helps">ちゃんと読まれた間隔</p>
+    <div class="fixbox">
+      <select name="oksecond">
+      <?php $helper->selectOptionTag(SettingConfig::$okSeconds, 'oksecond'); ?>
+      </select>
+    </div>
+    <ul>
+      <li class="duck">訪問者のサイト内の行動を推測する際に使用する時間の目安を設定してください。</li>
+      <li class="duck">設定値以上の閲覧は"Good!!"、以下は"Bad&#133;"となります。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">再び訪問した間隔</p>
+    <div class="fixbox">
+      <select name="againsecond">
+      <?php $helper->selectOptionTag(SettingConfig::$againSeconds, 'againsecond'); ?>
+      </select>
+    </div>
+    <ul>
+      <li class="duck">訪問者のサイト内の行動を推測する際に使用する時間の目安を設定してください。</li>
+      <li class="duck">設定値以上の閲覧は"ReVISIT!"となります。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">明細表示件数</p>
+    <div class="fixbox">
+      <select name="dispview">
+      <?php $helper->selectOptionTag(SettingConfig::$dispViews, 'dispview'); ?>
+      </select>
+    </div>
+    <ul>
+    <li class="duck">各解析結果の1画面表示件数を設定してください。</li>
+    </ul>
+  </div>
+  <div class="box">
+    <p class="helps">フィルタ設定</p>
+    <div class="fixbox">
+      <textarea name="filter" cols="30" rows="6"><?php $helper->filter(); ?></textarea>
+    </div>
+    <ul>
+      <li class="duck">指定されたリモートホスト、IPアドレスからのアクセスを解析結果から除外します。</li>
+      <li class="duck">リモートホストかIPアドレスの全て、又は一部を指定してください。（例:exsample.com 、exsample. 、192.168.0.1 、192）</li>
+      <li class="duck">複数指定する場合は、改行して指定してください。</li>
+    </ul>
+  </div>
+  <div class="fixbox"><input class="button" type="submit" value=" 更新 " onclick="disableButton(this.form);" /></div>
+</form>

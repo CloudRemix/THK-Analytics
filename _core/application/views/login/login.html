@@ -1,0 +1,36 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<div class="group">
+  <h1>ログインフォーム</h1>
+  <?php $helper->errorMessageTag(); ?>
+  <form action="<?php $helper->indexUrl('login', 'login');?>" method="post">
+    <div><input id="loginid" maxlength="100" name="loginid" type="text" value="" placeholder="ユーザー名" autofocus="autofocus" /></div>
+    <div>&nbsp;</div>
+    <div><input id="pswd" maxlength="100" name="pswd" type="password" value="" placeholder="パスワード" /></div>
+    <div class="loginbutton"><input id="memory" name="memory" type="checkbox" value="<?php echo Config::ON;?>" <?php $helper->memory();?> />&nbsp;自動ログインを有効にする&nbsp;<input class="button" name="commit" onclick="disableButton(this.form);" type="submit" value=" ログイン " /></div>
+  </form>
+</div>

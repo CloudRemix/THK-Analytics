@@ -1,0 +1,70 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<?php $helper->errorMessageTag(); ?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">全データサイズ</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->systemDataSize();?></span></td>
+</tr>
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">月間ログ数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->existLogCount();?></span></td>
+</tr>
+</table>
+
+<form action="<?php $helper->indexUrl('admin', 'deletelog');?>" method="post" id="deletelog">
+<table class="log">
+ <colgroup>
+  <col>
+  <col class="w50">
+  <col class="w50">
+ </colgroup>
+ <thead>
+ <tr>
+  <th>-</th>
+  <th>ログ名</th>
+  <th>データサイズ</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultExistLogListTag(); ?>
+ </tbody>
+</table>
+<p><input class="button" type="submit" value=" 選択したログの確認 " onclick="disableButton(this.form, 'delete[]');" />&nbsp;&nbsp;<span class="vmiddle">[<a href="javascript:checkboxAllOn('deletelog','delete[]');">全て選択</a>]&nbsp;[<a href="javascript:checkboxAllOff('deletelog','delete[]');">選択解除</a>]</span></p>
+</form>
+<div class="footnote m0-t">
+<ul>
+<li class="duck">ログが不要になった場合や、サーバーの容量が不足してきた場合は、ログを削除してください。</li>
+<li class="duck">全データサイズは、<?php echo ThkConfig::THK_NAME ?> で使用しているデータベースの全テーブルの合算値です。</li>
+<li class="duck">実際の削除は、次の確認画面で選択内容を確認後に行われます。</li>
+<li class="red bold">削除したログは復元することができませんので、ご注意ください。</li>
+</ul>
+</div>

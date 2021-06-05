@@ -1,0 +1,61 @@
+<?php
+/**
+ * THK Analytics - free/libre analytics platform
+ *
+ * @copyright Copyright (C) 2015 Thought is free.
+ * @link http://thk.kanzae.net/analytics/
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ * @author LunaNuko
+ *
+ * This program has been developed on the basis of the Research Artisan Lite.
+ */
+
+/**
+ * Research Artisan Lite: Website Access Analyzer
+ * Copyright (C) 2009 Research Artisan Project
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * @copyright Copyright (C) 2009 Research Artisan Project
+ * @license GNU General Public License (see license.txt)
+ * @author ossi
+ */
+?>
+<table class="hval">
+<tr>
+  <td class="label"><div class="gray"></div></td>
+  <td class="label">設定済み訪問者数</td>
+  <td class="label">:</td>
+  <td class="value"><span class="hval"><?php $helper->aliasCount();?></span></td>
+</tr>
+</table>
+
+<?php $helper->searchFormTag('訪問者名'); ?>
+
+<form action="<?php $helper->indexUrl('admin', 'aliasdelete');?>" method="post" id="alias">
+<?php echo $helper->pageTag(); ?>
+<table class="std">
+ <colgroup>
+  <col>
+  <col class="w40">
+  <col class="w60">
+  <col>
+ </colgroup>
+ <thead>
+ <tr>
+  <th>-</th>
+  <th>ID</th>
+  <th>訪問者名</th>
+  <th>設定</th>
+ </tr>
+ </thead>
+ <tbody>
+<?php $helper->resultAliasListTag(); ?>
+ </tbody>
+</table>
+<p><input class="button" type="submit" value=" 選択した訪問者設定を削除 " onclick="disableButton(this.form);" />&nbsp;&nbsp;<span class="vmiddle">[<a href="javascript:checkboxAllOn('alias','delete[]');">全て選択</a>]&nbsp;[<a href="javascript:checkboxAllOff('alias','delete[]');">選択解除</a>]</span></p>
+<?php echo $helper->pageTag(); ?>
+</form>
