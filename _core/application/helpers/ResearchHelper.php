@@ -1658,7 +1658,7 @@ class ResearchHelper extends BaseHelper {
 		$uid_access = array();
 		$uid_clicks = array();
 
-		while( list( $key, $value ) = each( $summaryData ) ) {
+		foreach( (array)$summaryData as $key => $value ) {
 		//foreach( $uid_unique as $key => $value ) {
 			if( $pageCount >= $siteData['dispview'] * ( $page - 1 ) + 1 && $pageCount <= $siteData['dispview'] * $page ) {
 				$uid_access[] = $key;
@@ -1671,7 +1671,7 @@ class ResearchHelper extends BaseHelper {
 		$i = 0;
 		$pageCount = 1;
 
-		while( list( $key, $value ) = each( $clickLink ) ) {
+		foreach( (array)$clickLink as $key => $value ) {
 		//foreach( $uid_unique as $key => $value ) {
 			if( $pageCount >= $siteData['dispview'] * ( $page - 1 ) + 1 && $pageCount <= $siteData['dispview'] * $page ) {
 				$uid_clicks[] = $key;
